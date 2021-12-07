@@ -23,11 +23,13 @@ public class SpigotCommand implements CommandExecutor, TabCompleter {
     private final @NotNull String COMMAND_NAME;
     private final @NotNull List<String> COMMAND_ALIASES;
     private final @Nullable String COMMAND_PERMISSION;
-    private final Consumer<CommandSender> onNoArgs;
-    private final Consumer<CommandSender> onNoPermission;
+    private final Consumer<CommandWrapper> onNoArgs;
+    private final Consumer<CommandWrapper> onNoPermission;
+    private final Consumer<CommandWrapper> onNoSubcommand;
 
-    public SpigotCommand(JavaPlugin plugin, String name, List<String> aliases, String COMMAND_PERMISSION,
-                         Consumer<CommandSender> onNoArgs, Consumer<CommandSender> onNoPermission,
+    public SpigotCommand(JavaPlugin plugin, @NotNull String name, @NotNull List<String> aliases,
+                         @Nullable String COMMAND_PERMISSION, Consumer<CommandWrapper> onNoArgs,
+                         Consumer<CommandWrapper> onNoPermission, Consumer<CommandWrapper> onNoSubcommand,
                          SubCommand... subCommands) {
         this.plugin = plugin;
         this.COMMAND_NAME = name;
@@ -35,6 +37,7 @@ public class SpigotCommand implements CommandExecutor, TabCompleter {
         this.COMMAND_PERMISSION = COMMAND_PERMISSION;
         this.onNoArgs = onNoArgs;
         this.onNoPermission = onNoPermission;
+        this.onNoSubcommand = onNoSubcommand;
 
         for (SubCommand subCommand : subCommands) {
             this.subCommandMap.put(subCommand.getName(), subCommand);
@@ -60,21 +63,21 @@ public class SpigotCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
         if(COMMAND_PERMISSION != null && !sender.hasPermission(COMMAND_PERMISSION)){
-            onNoPermission.accept(sender);
+            onNoPermission.accept(new CommandWrapper(sender, args));
             return true;
         }
         if (args.length == 0) {
-            onNoArgs.accept(sender);
+            onNoArgs.accept(new CommandWrapper(sender, args));
             return true;
         }
         SubCommand subCommand = this.subCommandMap.get(args[0].toLowerCase());
         if (subCommand == null) {
-            onNoArgs.accept(sender);
+            onNoSubcommand.accept(new CommandWrapper(sender, args));
             return true;
         }
         if (subCommand.getPermission() != null &&
                 !sender.hasPermission(subCommand.getPermission())) {
-            onNoPermission.accept(sender);
+            onNoPermission.accept(new CommandWrapper(sender, args));
             return true;
         }
         subCommand.execute(plugin, sender, args);
