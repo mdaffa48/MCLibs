@@ -1,11 +1,11 @@
 package me.aglerr.mclibs.libs;
 
 import de.themoep.minedown.MineDown;
-import me.aglerr.mclibs.MCLibs;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
+import java.text.NumberFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -76,6 +76,13 @@ public class Common {
     public static boolean hasOffhand() {
         return !Bukkit.getVersion().contains("1.7") &&
                 !Bukkit.getVersion().contains("1.8");
+    }
+
+    public static String digits(double d){
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(2);
+        numberFormat.setMinimumFractionDigits(0);
+        return numberFormat.format(d);
     }
 
 }
