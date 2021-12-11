@@ -6,7 +6,7 @@
 
     <groupId>me.aglerr.mclibs</groupId>
     <artifactId>MCLibs</artifactId>
-    <version>latest</version>
+    <version>0.0.5</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -51,6 +51,10 @@
             <id>minebench-repo</id>
             <url>https://repo.minebench.de/</url>
         </repository>
+        <repository>
+            <id>placeholderapi</id>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -80,6 +84,12 @@
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>4.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.10.10</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

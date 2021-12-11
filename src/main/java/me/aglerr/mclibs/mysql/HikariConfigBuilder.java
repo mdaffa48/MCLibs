@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class HikariConfigBuilder {
 
-    private String host, database, user, password, poolName;
+    private String host, database, user, password, poolName, path;
     private Integer port;
     private int waitTimeout = 600000;
     private int maxLifetime = 1800000;
@@ -37,6 +37,11 @@ public class HikariConfigBuilder {
 
     public HikariConfigBuilder setPoolName(String poolName) {
         this.poolName = poolName;
+        return this;
+    }
+
+    public HikariConfigBuilder setPath(String path){
+        this.path = path;
         return this;
     }
 
@@ -75,7 +80,7 @@ public class HikariConfigBuilder {
         return this;
     }
 
-    public HikariConfig build() {
+    public HikariConfig buildMysql() {
         Objects.requireNonNull(host, "Host/Address cannot be null");
         Objects.requireNonNull(database, "Database name cannot be null");
         Objects.requireNonNull(user, "Username cannot be null");
@@ -98,6 +103,23 @@ public class HikariConfigBuilder {
         config.setMaxLifetime(maxLifetime);
         config.addDataSourceProperty("characterEncoding", "utf8");
         config.addDataSourceProperty("useUnicode", true);
+
+        return config;
+    }
+
+    public HikariConfig buildSQLite(){
+        Objects.requireNonNull(path, "Path cannot be null");
+        Objects.requireNonNull(poolName, "Pool name cannot be null");
+
+        HikariConfig config = new HikariConfig();
+        config.setConnectionTestQuery("SELECT 1");
+        config.setDriverClassName("org.sqlite.JDBC");
+        config.setJdbcUrl("jdbc:sqlite:" + path);
+        config.setPoolName(poolName);
+        config.setMaximumPoolSize(1);
+        config.setConnectionTimeout(connectionTimeout);
+        config.setIdleTimeout(waitTimeout);
+        config.setLeakDetectionThreshold(10000);
 
         return config;
     }

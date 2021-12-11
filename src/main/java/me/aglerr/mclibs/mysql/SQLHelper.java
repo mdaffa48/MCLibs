@@ -12,9 +12,9 @@ public class SQLHelper {
 
     private static SQLSession globalSession;
 
-    public static boolean createConnection(HikariConfig config) {
-        globalSession = new SQLSession(config);
-        return globalSession.createConnection();
+    public static boolean createConnection(boolean mysql, String path, HikariConfig config) {
+        globalSession = new SQLSession(path, config);
+        return globalSession.createConnection(mysql);
     }
 
     public static void executeUpdate(String statement) {

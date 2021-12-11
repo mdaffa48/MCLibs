@@ -1,6 +1,7 @@
 package me.aglerr.mclibs.libs;
 
 import de.themoep.minedown.MineDown;
+import me.aglerr.mclibs.MCLibs;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
