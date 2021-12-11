@@ -1,9 +1,12 @@
 package me.aglerr.mclibs.libs;
 
 import de.themoep.minedown.MineDown;
+import me.aglerr.mclibs.MCLibs;
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.text.NumberFormat;
 import java.util.List;
@@ -22,6 +25,10 @@ public class Common {
     }
 
     public static void sendMessage(CommandSender sender, String message) {
+        if(sender instanceof Player && MCLibs.PLACEHOLDER_API){
+            sender.sendMessage(PlaceholderAPI.setPlaceholders((Player) sender, color(message)));
+            return;
+        }
         sender.sendMessage(color(message));
     }
 
@@ -31,6 +38,20 @@ public class Common {
 
     public static String color(String message) {
         return BaseComponent.toLegacyText(MineDown.parse(message));
+    }
+
+    public static List<String> tryParsePAPI(Player player, List<String> messages){
+        if(MCLibs.PLACEHOLDER_API){
+            return PlaceholderAPI.setPlaceholders(player, color(messages));
+        }
+        return color(messages);
+    }
+
+    public static String tryParsePAPI(Player player, String message){
+        if(MCLibs.PLACEHOLDER_API){
+            return PlaceholderAPI.setPlaceholders(player, color(message));
+        }
+        return color(message);
     }
 
     public static void log(String... messages) {
