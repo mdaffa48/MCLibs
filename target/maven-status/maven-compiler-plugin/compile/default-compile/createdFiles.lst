@@ -20,6 +20,7 @@ me\aglerr\mclibs\libs\ChatPrompt$CancelReason.class
 me\aglerr\mclibs\mysql\SQLSession$QueryConsumer.class
 me\aglerr\mclibs\inventory\SimpleInventoryManager.class
 me\aglerr\mclibs\libs\ChatPrompt.class
+me\aglerr\mclibs\libs\ConfigUpdater.class
 me\aglerr\mclibs\libs\UpdateChecker$VersionScheme.class
 me\aglerr\mclibs\libs\Common.class
 me\aglerr\mclibs\mysql\SQLHelper.class

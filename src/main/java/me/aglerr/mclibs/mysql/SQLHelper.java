@@ -2,6 +2,7 @@ package me.aglerr.mclibs.mysql;
 
 import com.zaxxer.hikari.HikariConfig;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -41,6 +42,10 @@ public class SQLHelper {
         AtomicBoolean result = new AtomicBoolean(false);
         executeQuery(statement, resultSet -> result.set(resultSet.next()));
         return result.get();
+    }
+
+    public static Connection getConnection() throws SQLException {
+        return globalSession.getConnection();
     }
 
     public static void close() {
