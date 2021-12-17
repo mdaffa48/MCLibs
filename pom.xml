@@ -6,7 +6,7 @@
 
     <groupId>me.aglerr.mclibs</groupId>
     <artifactId>MCLibs</artifactId>
-    <version>0.0.8</version>
+    <version>0.0.9</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -67,6 +67,12 @@
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>1.18-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
