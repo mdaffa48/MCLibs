@@ -10,6 +10,7 @@ me\aglerr\mclibs\commands\SpigotCommand.class
 me\aglerr\mclibs\libs\UpdateChecker$1.class
 me\aglerr\mclibs\messages\DefaultFontInfo.class
 me\aglerr\mclibs\libs\LocationUtils.class
+me\aglerr\mclibs\messages\ActionBar8$1.class
 me\aglerr\mclibs\mysql\HikariConfigBuilder.class
 me\aglerr\mclibs\mysql\SQLHelper$QueryConsumer.class
 me\aglerr\mclibs\inventory\SimpleInventoryManager$InventoryListener.class
@@ -22,6 +23,7 @@ me\aglerr\mclibs\inventory\SimpleInventoryManager.class
 me\aglerr\mclibs\libs\ChatPrompt.class
 me\aglerr\mclibs\libs\ConfigUpdater.class
 me\aglerr\mclibs\libs\UpdateChecker$VersionScheme.class
+me\aglerr\mclibs\messages\ActionBar8.class
 me\aglerr\mclibs\libs\Common.class
 me\aglerr\mclibs\mysql\SQLHelper.class
 me\aglerr\mclibs\libs\UpdateChecker$UpdateResult.class
