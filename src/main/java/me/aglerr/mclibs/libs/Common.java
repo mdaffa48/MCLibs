@@ -57,7 +57,7 @@ public class Common {
     public static void log(String... messages) {
         for (String message : messages) {
             Bukkit.getConsoleSender().sendMessage(
-                    Common.PREFIX + " " + color(message)
+                    Common.PREFIX + " " + color("&r" + message)
             );
         }
     }
