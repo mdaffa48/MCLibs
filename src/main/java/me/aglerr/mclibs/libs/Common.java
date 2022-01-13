@@ -25,6 +25,9 @@ public class Common {
     }
 
     public static void sendMessage(CommandSender sender, String message) {
+        if(message.isEmpty() || message.equalsIgnoreCase("null")){
+            return;
+        }
         if(sender instanceof Player && MCLibs.PLACEHOLDER_API){
             sender.sendMessage(PlaceholderAPI.setPlaceholders((Player) sender, color(message)));
             return;

@@ -1,6 +1,7 @@
 package me.aglerr.mclibs;
 
 import me.aglerr.mclibs.inventory.SimpleInventoryManager;
+import me.aglerr.mclibs.libs.Common;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
