@@ -206,6 +206,18 @@ public class ItemBuilder {
         return this;
     }
 
+    public ItemBuilder replace(String placeholder, String value) {
+        this.meta.setDisplayName(this.meta.getDisplayName().replace(placeholder, value));
+        if (this.meta.getLore() != null) {
+            List<String> lore = new ArrayList<>();
+            for (String line : this.meta.getLore()) {
+                lore.add(line.replace(placeholder, value));
+            }
+            this.meta.setLore(lore);
+        }
+        return this;
+    }
+
     public ItemStack build() {
         this.item.setItemMeta(this.meta);
         return this.item;
