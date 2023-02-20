@@ -4,6 +4,7 @@ import me.aglerr.mclibs.libs.Common;
 import org.bukkit.Bukkit;
 import org.bukkit.command.*;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -97,7 +98,7 @@ public class SpigotCommand implements CommandExecutor, TabCompleter {
                     suggestions.add(subCommand.getName());
                 }
             }
-            return suggestions;
+            return StringUtil.copyPartialMatches(args[0], suggestions, new ArrayList<>());
         }
         if (args.length >= 2) {
             SubCommand subCommand = subCommandMap.get(args[0].toLowerCase());

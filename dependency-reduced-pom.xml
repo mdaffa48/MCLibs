@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>me.aglerr.mclibs</groupId>
   <artifactId>MCLibs</artifactId>
-  <version>0.1.2</version>
+  <version>0.1.7</version>
   <build>
     <plugins>
       <plugin>
@@ -31,6 +31,10 @@
               <pattern>com.zaxxer.hikari</pattern>
               <shadedPattern>me.aglerr.mclibs.hikaricp</shadedPattern>
             </relocation>
+            <relocation>
+              <pattern>org.apache.commons.lang3</pattern>
+              <shadedPattern>me.aglerr.mclibs.apache3</shadedPattern>
+            </relocation>
           </relocations>
         </configuration>
       </plugin>
@@ -54,7 +58,7 @@
     <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot-api</artifactId>
-      <version>1.18-R0.1-SNAPSHOT</version>
+      <version>1.19-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>

@@ -6,7 +6,7 @@
 
     <groupId>me.aglerr.mclibs</groupId>
     <artifactId>MCLibs</artifactId>
-    <version>0.1.7</version>
+    <version>0.1.8</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -80,7 +80,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.19-R0.1-SNAPSHOT</version>
+            <version>1.19.3-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -92,7 +92,7 @@
         <dependency>
             <groupId>com.github.cryptomorin</groupId>
             <artifactId>XSeries</artifactId>
-            <version>8.8.0</version>
+            <version>9.2.0</version>
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
