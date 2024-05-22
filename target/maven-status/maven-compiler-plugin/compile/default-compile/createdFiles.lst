@@ -7,7 +7,6 @@ me\aglerr\mclibs\libs\UpdateChecker$UpdateReason.class
 me\aglerr\mclibs\mysql\SQLSession.class
 me\aglerr\mclibs\libs\Executor.class
 me\aglerr\mclibs\commands\SpigotCommand.class
-me\aglerr\mclibs\libs\UpdateChecker$1.class
 me\aglerr\mclibs\messages\DefaultFontInfo.class
 me\aglerr\mclibs\libs\LocationUtils.class
 me\aglerr\mclibs\mysql\HikariConfigBuilder.class
